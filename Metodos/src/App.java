@@ -21,7 +21,6 @@ public class App {
                     JOptionPane.showMessageDialog(null, "A senha está incorreta, digite novamente");
                 }
             } while (cel1.inserirSenha(senha) == false);
-
             break;
 
         case 2:
@@ -44,7 +43,6 @@ public class App {
                 JOptionPane.showMessageDialog(null,"Não conseguiu acesso");
             }
         break;
-
       }
         } while (opcaomenu !=0);
 
