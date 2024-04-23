@@ -3,7 +3,7 @@ import javax.swing.JOptionPane;
 public class App {
     public static void main(String[] args) throws Exception {
         Celular cel1 = new Celular();
-        int senha, menu, opcaomenu = 0, opcVoltar = 0;
+        int senha, menu, opcaomenu = 0;
         String volume;
         String escolherOpcao[] = {"Sair", "Digitar a senha", "Aumentar volume", "Entrar no Youtube"};
         do {
