@@ -37,6 +37,7 @@ public class App {
         case 3:
             // função entrar no youtube
             int youtube = JOptionPane.showConfirmDialog(null, "Clique em sim para entrar no Youtube", "Entrar", JOptionPane.YES_NO_OPTION);
+            // usando condição falsa, ainda não entendi
             if (cel1.entrar_Youtube(youtube) == false) {
                 JOptionPane.showMessageDialog(null,"Conseguiu acesso");
             }else{
