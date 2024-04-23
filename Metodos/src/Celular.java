@@ -3,12 +3,12 @@ public class Celular {
     private String carregador;
     private String botao;
     private int botao_volume;
-    private boolean senha;
+    private int senha;
 
     public Celular(){
 
     }
-    public Celular(String tela, String carregador, String botao, int botao_volume, boolean senha){
+    public Celular(String tela, String carregador, String botao, int botao_volume, int senha){
         this.tela = tela;
         this.carregador = carregador;
         this.botao = botao;
@@ -48,19 +48,19 @@ public class Celular {
         return this.botao_volume;
     }
 
-    public void setSenha(boolean senha){
+    public void setSenha(int senha){
         this.senha = senha;
     }
 
-    public boolean getSenha(){
+    public int getSenha(){
         return this.senha;
     }
 
-    public String ligarTela(String tela){
-        return tela;
-    }
-
     public boolean inserirSenha(int senha){
-        return true;
+        if (senha == 1908) {
+            return true;
+        }else{
+            return false;
+        }
     }
 }
