@@ -2,13 +2,13 @@ public class Celular {
     private String tela;
     private String carregador;
     private String botao;
-    private int botao_volume;
+    private String botao_volume;
     private int senha;
 
     public Celular(){
 
     }
-    public Celular(String tela, String carregador, String botao, int botao_volume, int senha){
+    public Celular(String tela, String carregador, String botao, String botao_volume, int senha){
         this.tela = tela;
         this.carregador = carregador;
         this.botao = botao;
@@ -40,11 +40,11 @@ public class Celular {
         return this.botao;
     }
 
-    public void setBotao_volume(int botao_volume){
+    public void setBotao_volume(String botao_volume){
         this.botao_volume = botao_volume;
     }
 
-    public int getBotao_volume(){
+    public String getBotao_volume(){
         return this.botao_volume;
     }
 
@@ -56,8 +56,18 @@ public class Celular {
         return this.senha;
     }
 
+    // função inserir senha
     public boolean inserirSenha(int senha){
         if (senha == 1908) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    // função aumentar volume
+    public boolean aumentarVolume(String botao_volume){
+        if (botao_volume == "sim" || botao_volume == "s" || botao_volume == "SIM" || botao_volume == "Sim") {
             return true;
         }else{
             return false;
