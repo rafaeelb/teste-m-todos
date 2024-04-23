@@ -3,9 +3,9 @@ import javax.swing.JOptionPane;
 public class App {
     public static void main(String[] args) throws Exception {
         Celular cel1 = new Celular();
-        int senha, menu, opcaomenu = 0;
+        int senha, menu, opcaomenu = 0, opcVoltar = 0;
         String volume;
-        String escolherOpcao[] = {"Sair", "Digitar a senha", "Aumentar volume", "Entrar no Youtube", "Voltar ao menu"};
+        String escolherOpcao[] = {"Sair", "Digitar a senha", "Aumentar volume", "Entrar no Youtube"};
         do {
             menu = JOptionPane.showOptionDialog(null, "Escolha uma opção", "Menu", 0, JOptionPane.QUESTION_MESSAGE, null, escolherOpcao, escolherOpcao[0]);
                    
@@ -21,6 +21,7 @@ public class App {
                     JOptionPane.showMessageDialog(null, "A senha está incorreta, digite novamente");
                 }
             } while (cel1.inserirSenha(senha) == false);
+
             break;
 
         case 2:
@@ -35,12 +36,14 @@ public class App {
 
         case 3:
             // função entrar no youtube
+            int youtube = JOptionPane.showConfirmDialog(null, "Clique em sim para entrar no Youtube", "Entrar", JOptionPane.YES_NO_OPTION);
+            if (cel1.entrar_Youtube(youtube) == false) {
+                JOptionPane.showMessageDialog(null,"Conseguiu acesso");
+            }else{
+                JOptionPane.showMessageDialog(null,"Não conseguiu acesso");
+            }
         break;
 
-        case 4:
-            // voltar ao menu
-          opcaomenu = 4;
-        break;
       }
         } while (opcaomenu !=0);
 
