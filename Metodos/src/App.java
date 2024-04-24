@@ -5,6 +5,8 @@ public class App {
     // definição de constantes para evitar repetição de strings
     private static final String RETORNAR_MENU = "Deseja retornar ao menu? ";
     private static final String MENU = "MENU";
+    private static final String PROGRAMA_ENCERRADO = "Programa Encerrado";
+    private static final String ENTRAR_YOUTUBE = "Entrar no Youtube";
     public static void main(String[] args) throws Exception {
         Celular cel1 = new Celular();
         int senha, menu = 0, voltar = 0;
@@ -34,7 +36,7 @@ public class App {
                     menu =4;
                 }else{
                     menu =0;
-                    JOptionPane.showMessageDialog(null, "Programa encerrado");
+                    JOptionPane.showMessageDialog(null, PROGRAMA_ENCERRADO);
                 }
                     break;
 
@@ -50,7 +52,7 @@ public class App {
 
                 case 3:
                     // função entrar no youtube
-                    int youtube = JOptionPane.showConfirmDialog(null, "Clique em sim para entrar no Youtube", "Entrar", JOptionPane.YES_NO_OPTION);
+                    int youtube = JOptionPane.showConfirmDialog(null, "Clique em sim para entrar no Youtube", ENTRAR_YOUTUBE, JOptionPane.YES_NO_OPTION);
                     // usando condição falsa, ainda não entendi
                     if (cel1.entrar_Youtube(youtube) == false) {
                         JOptionPane.showMessageDialog(null,"Conseguiu acesso");
