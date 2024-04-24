@@ -57,11 +57,5 @@ public class App {
                 break;
             }
         } while (menu !=0);
-
-
-        // opcVoltar = JOptionPane.showConfirmDialog(null, "Deseja voltar ao menu?", "Voltar", JOptionPane.YES_NO_OPTION);
-        // if (opcVoltar ==0) {
-        //     opcaomenu = 4;
-        // }
     }
 }
