@@ -2,6 +2,9 @@
 import javax.swing.JOptionPane;
 
 public class App {
+    // definição de constantes para evitar repetição de strings
+    private static final String RETORNAR_MENU = "Deseja retornar ao menu? ";
+    private static final String MENU = "MENU";
     public static void main(String[] args) throws Exception {
         Celular cel1 = new Celular();
         int senha, menu = 0, voltar = 0;
@@ -25,7 +28,7 @@ public class App {
                         // enquanto a senha for errada, volta para o loop
                     } while (cel1.inserirSenha(senha) == false);
                     // instrução para voltar ao menu
-                voltar = JOptionPane.showConfirmDialog(null, "Deseja retornar ao menu? ", "Menu", JOptionPane.YES_NO_OPTION);
+                voltar = JOptionPane.showConfirmDialog(null, RETORNAR_MENU, MENU, JOptionPane.YES_NO_OPTION);
                 // se a variavel voltar for igual a 0, retorna para o menu, o 0 indica a opção 'YES', e o 1 a opção 'NO'.
                 if (voltar == 0) {
                     menu =4;
