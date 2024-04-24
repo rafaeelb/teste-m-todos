@@ -18,11 +18,15 @@ public class App {
     private static final String ACESSO_LIBERADO = "Conseguiu acesso";
     private static final String ACESSO_NEGADO = "Não conseguiu acesso";
     public static void main(String[] args) throws Exception {
+        // instanciação do objeto
         Celular cel1 = new Celular();
+        // declaração de variáveis
         int senha, menu = 0, voltar = 0;
         String volume;
+        // declaração do array com as opções
         String escolherOpcao[] = {"Sair", "Digitar a senha", "Aumentar volume", "Entrar no Youtube"};
         
+        // inicialização do laço do while para o menu
         do {
             menu = JOptionPane.showOptionDialog(null, ESCOLHER_OPCAO, MENU, 0, JOptionPane.QUESTION_MESSAGE, null, escolherOpcao, escolherOpcao[0]);
                    
@@ -45,6 +49,7 @@ public class App {
                 if (voltar == 0) {
                     menu =4;
                 }else{
+                    // indica a posição 0 do menu(sair)
                     menu =0;
                     JOptionPane.showMessageDialog(null, PROGRAMA_ENCERRADO);
                 }
@@ -63,7 +68,7 @@ public class App {
                 case 3:
                     // função entrar no youtube
                     int youtube = JOptionPane.showConfirmDialog(null, CLIQUE_YOUTUBE, ENTRAR_YOUTUBE, JOptionPane.YES_NO_OPTION);
-                    // usando condição falsa, ainda não entendi
+                    // usando condição falsa (ARRUMAR), ainda não entendi
                     if (cel1.entrar_Youtube(youtube) == false) {
                         JOptionPane.showMessageDialog(null,ACESSO_LIBERADO);
                     }else{
@@ -71,6 +76,7 @@ public class App {
                     }
                 break;
             }
+            // conclusão do laço do while para o menu
         } while (menu !=0);
     }
 }
