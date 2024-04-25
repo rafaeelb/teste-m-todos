@@ -58,24 +58,36 @@ public class App {
                 case 2:
                     //funçao aumentar volume
                     do {
-                    botao_volume = JOptionPane.showConfirmDialog(null, AUMENTAR_VOLUME, MENU, JOptionPane.YES_NO_OPTION);
+                        // String escolha de opção para o volume
+                        String volume[] = {"Aumentar volume" , "Abaixar volume", "Retornar ao Menu"};
+                        // variavel de quantidade do volume
+                        int quantidade_volume = 0;
+                        // variavel do método aumentar volume, com a opção de aumentar ou abaixar o volume
+                        botao_volume = JOptionPane.showOptionDialog(null, "Escolha entre aumentar o volume e abaixar ",MENU , 0, JOptionPane.QUESTION_MESSAGE, null, volume, volume[0]);
                         // ARRUMAR CONDIÇÃO ///
+                        // se escolher o array aumentar o volume, entra nessa condição
                         if (cel1.aumentarVolume(botao_volume) == true) {
-                            int quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog("Em quanto deseja aumentar o volume? "));
-                            JOptionPane.showMessageDialog(null, "Volume aumentado em" + quantidade_volume);
+                            // escolha da quantidade para aumentar o volume
+                            quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog("Em quanto deseja aumentar o volume? "));
+                            JOptionPane.showMessageDialog(null, "Volume aumentado em: " + quantidade_volume);
+                        // se escolher o array abaixar o volume, entra nessa condição
+                        }else if (cel1.aumentarVolume(botao_volume)==false) {
+                            // escolha da quantidade para abaixar o volume
+                            quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog("Em quanto deseja abaixar o volume? "));
+                            JOptionPane.showMessageDialog(null, "Volume abaixado em: " + quantidade_volume);
                         }else{
-                            JOptionPane.showMessageDialog(null, "Volume abaixado em " + botao_volume);
+                            // voltar ao menu
+                            voltar = JOptionPane.showConfirmDialog(null, RETORNAR_MENU, MENU, JOptionPane.YES_NO_OPTION);
+                            // se a variavel voltar for igual a 0, retorna para o menu, o 0 indica a opção 'YES', e o 1 a opção 'NO'.
+                            if (voltar == 0) {
+                                menu =4;
+                            }else{
+                                // indica a posição 0 do menu(sair)
+                                menu =0;
+                                JOptionPane.showMessageDialog(null, PROGRAMA_ENCERRADO);
+                            }
                         }
                     } while (cel1.aumentarVolume(botao_volume) == true);
-                    voltar = JOptionPane.showConfirmDialog(null, RETORNAR_MENU, MENU, JOptionPane.YES_NO_OPTION);
-                // se a variavel voltar for igual a 0, retorna para o menu, o 0 indica a opção 'YES', e o 1 a opção 'NO'.
-                if (voltar == 0) {
-                    menu =4;
-                }else{
-                    // indica a posição 0 do menu(sair)
-                    menu =0;
-                    JOptionPane.showMessageDialog(null, PROGRAMA_ENCERRADO);
-                }
                 break;
 
                 case 3:
