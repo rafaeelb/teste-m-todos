@@ -2,13 +2,13 @@ public class Celular {
     private String tela;
     private int youtube;
     private String botao;
-    private String botao_volume;
+    private int botao_volume;
     private int senha;
 
     public Celular(){
 
     }
-    public Celular(String tela, int youtube, String botao, String botao_volume, int senha){
+    public Celular(String tela, int youtube, String botao, int botao_volume, int senha){
         this.tela = tela;
         this.youtube = youtube;
         this.botao = botao;
@@ -40,11 +40,11 @@ public class Celular {
         return this.botao;
     }
 
-    public void setBotao_volume(String botao_volume){
+    public void setBotao_volume(int botao_volume){
         this.botao_volume = botao_volume;
     }
 
-    public String getBotao_volume(){
+    public int getBotao_volume(){
         return this.botao_volume;
     }
 
@@ -66,8 +66,8 @@ public class Celular {
     }
 
     // função aumentar volume
-    public boolean aumentarVolume(String botao_volume){
-        if (botao_volume == "sim" || botao_volume == "s" || botao_volume == "SIM" || botao_volume == "Sim") {
+    public boolean aumentarVolume(int botao_volume){
+        if (botao_volume == 0) {
             return true;
         }else{
             return false;
@@ -82,4 +82,6 @@ public class Celular {
             return false;
         }
     }
+
+    
 }

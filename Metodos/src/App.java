@@ -3,26 +3,26 @@ import javax.swing.JOptionPane;
 
 public class App {
     // definição de constantes para evitar repetição de strings
-    private static final String ESCOLHER_OPCAO = "Escolha uma opção";
-    private static final String SENHA_CELULAR = "Qual a senha do meu celular? ";
-    private static final String SENHA_CORRETA = "A senha está correta!";
-    private static final String SENHA_INCORRETA = "A senha está incorreta, digite novamente";
-    private static final String RETORNAR_MENU = "Deseja retornar ao menu? ";
-    private static final String MENU = "MENU";
-    private static final String PROGRAMA_ENCERRADO = "Programa Encerrado";
-    private static final String AUMENTAR_VOLUME = "Deseja aumentar o volume? ";
-    private static final String VOLUME_ABAIXADO = "Volume abaixado";
-    private static final String VOLUME_AUMENTADO = "Volume aumentado";
-    private static final String ENTRAR_YOUTUBE = "Entrar no Youtube";
-    private static final String CLIQUE_YOUTUBE = "Clique em sim para entrar no Youtube";
-    private static final String ACESSO_LIBERADO = "Conseguiu acesso";
-    private static final String ACESSO_NEGADO = "Não conseguiu acesso";
+    public static final String ESCOLHER_OPCAO = "Escolha uma opção";
+    public static final String SENHA_CELULAR = "Qual a senha do meu celular? ";
+    public static final String SENHA_CORRETA = "A senha está correta!";
+    public static final String SENHA_INCORRETA = "A senha está incorreta, digite novamente";
+    public static final String RETORNAR_MENU = "Deseja retornar ao menu? ";
+    public static final String MENU = "MENU";
+    public static final String PROGRAMA_ENCERRADO = "Programa Encerrado";
+    public static final String AUMENTAR_VOLUME = "Deseja aumentar o volume? ";
+    public static final String VOLUME_ABAIXADO = "Volume abaixado";
+    public static final String VOLUME_AUMENTADO = "Volume aumentado";
+    public static final String ENTRAR_YOUTUBE = "Entrar no Youtube";
+    public static final String CLIQUE_YOUTUBE = "Clique em sim para entrar no Youtube";
+    public static final String ACESSO_LIBERADO = "Conseguiu acesso";
+    public static final String ACESSO_NEGADO = "Não conseguiu acesso";
     public static void main(String[] args) throws Exception {
         // instanciação do objeto
         Celular cel1 = new Celular();
         // declaração de variáveis
         int senha, menu = 0, voltar = 0;
-        String volume;
+        int botao_volume;
         // declaração do array com as opções
         String escolherOpcao[] = {"Sair", "Digitar a senha", "Aumentar volume", "Entrar no Youtube"};
         
@@ -57,12 +57,25 @@ public class App {
 
                 case 2:
                     //funçao aumentar volume
-                    volume = JOptionPane.showInputDialog(null,AUMENTAR_VOLUME);
-                    if (cel1.aumentarVolume(volume) == true) {
-                        JOptionPane.showMessageDialog(null, VOLUME_AUMENTADO);
-                    }else{
-                        JOptionPane.showMessageDialog(null, VOLUME_ABAIXADO);
-                    }
+                    do {
+                    botao_volume = JOptionPane.showConfirmDialog(null, AUMENTAR_VOLUME, MENU, JOptionPane.YES_NO_OPTION);
+                        // ARRUMAR CONDIÇÃO ///
+                        if (cel1.aumentarVolume(botao_volume) == true) {
+                            int quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog("Em quanto deseja aumentar o volume? "));
+                            JOptionPane.showMessageDialog(null, "Volume aumentado em" + quantidade_volume);
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Volume abaixado em " + botao_volume);
+                        }
+                    } while (cel1.aumentarVolume(botao_volume) == true);
+                    voltar = JOptionPane.showConfirmDialog(null, RETORNAR_MENU, MENU, JOptionPane.YES_NO_OPTION);
+                // se a variavel voltar for igual a 0, retorna para o menu, o 0 indica a opção 'YES', e o 1 a opção 'NO'.
+                if (voltar == 0) {
+                    menu =4;
+                }else{
+                    // indica a posição 0 do menu(sair)
+                    menu =0;
+                    JOptionPane.showMessageDialog(null, PROGRAMA_ENCERRADO);
+                }
                 break;
 
                 case 3:
