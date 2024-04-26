@@ -1,13 +1,15 @@
 import javax.swing.JOptionPane;
 public class App {
     // definição de constantes para evitar repetição de strings
-    public static final String ESCOLHER_OPCAO = "Escolha uma opção";
+    private static final String NOME_MODELO = "Modelo ";
+    private static final String ARMAZENAMENTO = "Armazenamento ";
+    public static final String ESCOLHER_OPCAO = "Escolha uma opção para: ";
     public static final String SENHA_CELULAR = "Qual a senha do meu celular? ";
     public static final String SENHA_CORRETA = "A senha está correta!";
     public static final String SENHA_INCORRETA = "A senha está incorreta, digite novamente";
     public static final String RETORNAR_MENU = "Deseja retornar ao menu? ";
     public static final String MENU = "MENU";
-    public static final String PROGRAMA_ENCERRADO = "Programa Encerrado";
+    public static final String PROGRAMA_ENCERRADO = "Programa encerrado";
     public static final String AUMENTAR_VOLUME = "Em quanto deseja aumentar o volume? ";
     public static final String ABAIXAR_VOLUME = "Em quanto deseja abaixar o volume? ";
     public static final String ESCOLHER_MENU_VOLUME = "Escolha entre aumentar ou abaixar o volume";
@@ -20,18 +22,21 @@ public class App {
     public static void main(String[] args) throws Exception {
         // instanciação do objeto
         Celular meuCelular = new Celular();
-        meuCelular.setmodelo("Iphone 6s");
-        meuCelular.setArmazenamento("32GB");
         // declaração de variáveis
-        int senha, menu = 0, voltar = 0;
-        int botao_volume;
+        int senha, menu = 0, voltar = 0, botao_volume;
+        String modelo, armazenamento;
+        modelo = JOptionPane.showInputDialog("Digite o modelo do celular ");
+        meuCelular.setmodelo(modelo);
+        armazenamento = JOptionPane.showInputDialog("Digite o armazenamento do celular ");
+        meuCelular.setArmazenamento(armazenamento);
+    
         // declaração do array com as opções
         String escolherOpcao[] = {"Sair", "Digitar a senha", "Aumentar volume", "Entrar no Youtube"};
         
-        JOptionPane.showMessageDialog(null, "Modelo: " + meuCelular.getmodelo() + "\nArmazenamento: " + meuCelular.getArmazenamento());
+        JOptionPane.showMessageDialog(null, NOME_MODELO + meuCelular.getmodelo() + "\n"+ARMAZENAMENTO + meuCelular.getArmazenamento());
         // inicialização do laço do while para o menu
         do {
-            menu = JOptionPane.showOptionDialog(null, ESCOLHER_OPCAO, MENU, 0, JOptionPane.QUESTION_MESSAGE, null, escolherOpcao, escolherOpcao[0]);
+            menu = JOptionPane.showOptionDialog(null, ESCOLHER_OPCAO + meuCelular.getmodelo(), MENU, 0, JOptionPane.QUESTION_MESSAGE, null, escolherOpcao, escolherOpcao[0]);
                    
             switch (menu) {
                 // função digitar a senha
