@@ -1,6 +1,4 @@
-
 import javax.swing.JOptionPane;
-
 public class App {
     // definição de constantes para evitar repetição de strings
     public static final String ESCOLHER_OPCAO = "Escolha uma opção";
