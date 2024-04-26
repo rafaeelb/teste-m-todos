@@ -66,17 +66,23 @@ public class App {
                         botao_volume = JOptionPane.showOptionDialog(null, "Escolha entre aumentar o volume e abaixar ",MENU , 0, JOptionPane.QUESTION_MESSAGE, null, volume, volume[0]);
                         // ARRUMAR CONDIÇÃO ///
                         // se escolher o array aumentar o volume, entra nessa condição
-                        if (cel1.aumentarVolume(botao_volume) == true) {
-                            // escolha da quantidade para aumentar o volume
-                            quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog("Em quanto deseja aumentar o volume? "));
-                            JOptionPane.showMessageDialog(null, "Volume aumentado em: " + quantidade_volume);
-                        // se escolher o array abaixar o volume, entra nessa condição
-                        }else if (cel1.aumentarVolume(botao_volume)==false) {
-                            // escolha da quantidade para abaixar o volume
-                            quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog("Em quanto deseja abaixar o volume? "));
-                            JOptionPane.showMessageDialog(null, "Volume abaixado em: " + quantidade_volume);
-                        }else{
-                            // voltar ao menu
+                        switch (botao_volume) {
+                            case 0:
+                            if (cel1.aumentarVolume(botao_volume) == true) {
+                                // escolha da quantidade para aumentar o volume
+                                quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog("Em quanto deseja aumentar o volume? "));
+                                JOptionPane.showMessageDialog(null, "Volume aumentado em: " + quantidade_volume);
+                            // se escolher o array abaixar o volume, entra nessa condição
+                            }break;
+                            case 1:
+                            if (cel1.aumentarVolume(botao_volume)==false) {
+                                // escolha da quantidade para abaixar o volume
+                                quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog("Em quanto deseja abaixar o volume? "));
+                                JOptionPane.showMessageDialog(null, "Volume abaixado em: " + quantidade_volume);
+                            }
+                            break;
+                            case 2:
+                                // voltar ao menu
                             voltar = JOptionPane.showConfirmDialog(null, RETORNAR_MENU, MENU, JOptionPane.YES_NO_OPTION);
                             // se a variavel voltar for igual a 0, retorna para o menu, o 0 indica a opção 'YES', e o 1 a opção 'NO'.
                             if (voltar == 0) {
@@ -86,9 +92,10 @@ public class App {
                                 menu =0;
                                 JOptionPane.showMessageDialog(null, PROGRAMA_ENCERRADO);
                             }
-                        }
+                        }  break;
+                            
                     } while (cel1.aumentarVolume(botao_volume) == true);
-                break;
+                    break;
 
                 case 3:
                     // função entrar no youtube
