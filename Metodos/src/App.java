@@ -10,9 +10,11 @@ public class App {
     public static final String RETORNAR_MENU = "Deseja retornar ao menu? ";
     public static final String MENU = "MENU";
     public static final String PROGRAMA_ENCERRADO = "Programa Encerrado";
-    public static final String AUMENTAR_VOLUME = "Deseja aumentar o volume? ";
-    public static final String VOLUME_ABAIXADO = "Volume abaixado";
-    public static final String VOLUME_AUMENTADO = "Volume aumentado";
+    public static final String AUMENTAR_VOLUME = "Em quanto deseja aumentar o volume? ";
+    public static final String ABAIXAR_VOLUME = "Em quanto deseja abaixar o volume? ";
+    public static final String ESCOLHER_MENU_VOLUME = "Escolha entre aumentar ou abaixar o volume";
+    public static final String VOLUME_ABAIXADO = "Volume abaixado em ";
+    public static final String VOLUME_AUMENTADO = "Volume aumentado em ";
     public static final String ENTRAR_YOUTUBE = "Entrar no Youtube";
     public static final String CLIQUE_YOUTUBE = "Clique em sim para entrar no Youtube";
     public static final String ACESSO_LIBERADO = "Conseguiu acesso";
@@ -63,22 +65,22 @@ public class App {
                         // variavel de quantidade do volume
                         int quantidade_volume = 0;
                         // variavel do método aumentar volume, com a opção de aumentar ou abaixar o volume
-                        botao_volume = JOptionPane.showOptionDialog(null, "Escolha entre aumentar o volume e abaixar ",MENU , 0, JOptionPane.QUESTION_MESSAGE, null, volume, volume[0]);
+                        botao_volume = JOptionPane.showOptionDialog(null, ESCOLHER_MENU_VOLUME,MENU , 0, JOptionPane.QUESTION_MESSAGE, null, volume, volume[0]);
                         // ARRUMAR CONDIÇÃO ///
                         // se escolher o array aumentar o volume, entra nessa condição
                         switch (botao_volume) {
                             case 0:
                             if (cel1.aumentarVolume(botao_volume) == true) {
                                 // escolha da quantidade para aumentar o volume
-                                quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog("Em quanto deseja aumentar o volume? "));
-                                JOptionPane.showMessageDialog(null, "Volume aumentado em: " + quantidade_volume);
+                                quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog(AUMENTAR_VOLUME));
+                                JOptionPane.showMessageDialog(null, VOLUME_AUMENTADO + quantidade_volume);
                             // se escolher o array abaixar o volume, entra nessa condição
                             }break;
                             case 1:
                             if (cel1.aumentarVolume(botao_volume)==false) {
                                 // escolha da quantidade para abaixar o volume
-                                quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog("Em quanto deseja abaixar o volume? "));
-                                JOptionPane.showMessageDialog(null, "Volume abaixado em: " + quantidade_volume);
+                                quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog(ABAIXAR_VOLUME));
+                                JOptionPane.showMessageDialog(null, VOLUME_ABAIXADO + quantidade_volume);
                             }
                             break;
                             case 2:
