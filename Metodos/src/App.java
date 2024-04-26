@@ -68,7 +68,7 @@ public class App {
                         // se escolher o array aumentar o volume, entra nessa condição
                         switch (botao_volume) {
                             case 0:
-                            if (cel1.aumentarVolume(botao_volume) == true) {
+                            if (cel1.aumentarVolume(botao_volume)) {
                                 // escolha da quantidade para aumentar o volume
                                 quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog(AUMENTAR_VOLUME));
                                 JOptionPane.showMessageDialog(null, VOLUME_AUMENTADO + quantidade_volume);

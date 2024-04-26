@@ -8,12 +8,9 @@ public class Celular {
     public Celular(){
 
     }
-    public Celular(String tela, int youtube, String botao, int botao_volume, int senha){
+    public Celular(String tela, String botao){
         this.tela = tela;
-        this.youtube = youtube;
         this.botao = botao;
-        this.botao_volume = botao_volume;
-        this.senha = senha;
     }
 
     public void setTela(String tela){
