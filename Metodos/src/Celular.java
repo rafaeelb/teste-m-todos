@@ -1,24 +1,24 @@
 public class Celular {
-    private String tela;
+    private String modelo;
     private int youtube;
-    private String botao;
+    private String armazenamento;
     private int botao_volume;
     private int senha;
 
     public Celular(){
 
     }
-    public Celular(String tela, String botao){
-        this.tela = tela;
-        this.botao = botao;
+    public Celular(String modelo, String armazenamento){
+        this.modelo = modelo;
+        this.armazenamento = armazenamento;
     }
 
-    public void setTela(String tela){
-        this.tela = tela;
+    public void setmodelo(String modelo){
+        this.modelo = modelo;
     }
 
-    public String getTela(){
-        return this.tela;
+    public String getmodelo(){
+        return this.modelo;
     }
 
     public void setyoutube(int youtube){
@@ -29,12 +29,12 @@ public class Celular {
         return this.youtube;
     }
 
-    public void setBotao(String botao){
-        this.botao = botao;
+    public void setArmazenamento(String armazenamento){
+        this.armazenamento = armazenamento;
     }
 
-    public String botao(){
-        return this.botao;
+    public String getArmazenamento(){
+        return this.armazenamento;
     }
 
     public void setBotao_volume(int botao_volume){
