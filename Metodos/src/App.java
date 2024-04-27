@@ -49,7 +49,7 @@ public class App {
                         }else{
                             JOptionPane.showMessageDialog(null, SENHA_INCORRETA);
                         }
-                        // enquanto a senha for errada, volta para o loop
+                        // enquanto a senha for errada, volta para o loop(O '!' INDICA O OPERADOR LÓGICO NOT), o método já é true, então pela lógica, ele vai ser negado
                     } while (!meuCelular.inserirSenha(senha));
                     // instrução para voltar ao menu
                 voltar = JOptionPane.showConfirmDialog(null, RETORNAR_MENU, MENU, JOptionPane.YES_NO_OPTION);
@@ -83,7 +83,7 @@ public class App {
                             }break;
                             // se escolher o array abaixar o volume, entra nessa condição
                             case 1:
-                            if (meuCelular.aumentarVolume(botao_volume)==false) {
+                            if (!meuCelular.aumentarVolume(botao_volume)) {
                                 // escolha da quantidade para abaixar o volume
                                 quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog(ABAIXAR_VOLUME));
                                 JOptionPane.showMessageDialog(null, VOLUME_ABAIXADO + quantidade_volume);
@@ -102,7 +102,7 @@ public class App {
                             }
                         }  break;
                             
-                    } while (meuCelular.aumentarVolume(botao_volume) == true);
+                    } while (meuCelular.aumentarVolume(botao_volume));
                     break;
 
                 case 3:
