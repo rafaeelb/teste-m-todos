@@ -8,16 +8,20 @@ public class Celular {
     public Celular(){
 
     }
-    public Celular(String modelo, String armazenamento){
+ 
+    public Celular(String modelo, int youtube, String armazenamento, int botao_volume, int senha) {
         this.modelo = modelo;
+        this.youtube = youtube;
         this.armazenamento = armazenamento;
+        this.botao_volume = botao_volume;
+        this.senha = senha;
     }
 
-    public void setmodelo(String modelo){
+    public void setModelo(String modelo){
         this.modelo = modelo;
     }
 
-    public String getmodelo(){
+    public String getModelo(){
         return this.modelo;
     }
 

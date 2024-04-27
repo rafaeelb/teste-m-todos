@@ -26,17 +26,17 @@ public class App {
         int senha, menu = 0, voltar = 0, botao_volume;
         String modelo, armazenamento;
         modelo = JOptionPane.showInputDialog("Digite o modelo do celular ");
-        meuCelular.setmodelo(modelo);
+        meuCelular.setModelo(modelo);
         armazenamento = JOptionPane.showInputDialog("Digite o armazenamento do celular ");
         meuCelular.setArmazenamento(armazenamento);
     
         // declaração do array com as opções
         String escolherOpcao[] = {"Sair", "Digitar a senha", "Aumentar volume", "Entrar no Youtube"};
         
-        JOptionPane.showMessageDialog(null, NOME_MODELO + meuCelular.getmodelo() + "\n"+ARMAZENAMENTO + meuCelular.getArmazenamento());
+        JOptionPane.showMessageDialog(null, NOME_MODELO + meuCelular.getModelo() + "\n"+ARMAZENAMENTO + meuCelular.getArmazenamento());
         // inicialização do laço do while para o menu
         do {
-            menu = JOptionPane.showOptionDialog(null, ESCOLHER_OPCAO + meuCelular.getmodelo(), MENU, 0, JOptionPane.QUESTION_MESSAGE, null, escolherOpcao, escolherOpcao[0]);
+            menu = JOptionPane.showOptionDialog(null, ESCOLHER_OPCAO + meuCelular.getModelo(), MENU, 0, JOptionPane.QUESTION_MESSAGE, null, escolherOpcao, escolherOpcao[0]);
                    
             switch (menu) {
                 // função digitar a senha
