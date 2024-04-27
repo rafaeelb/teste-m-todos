@@ -50,7 +50,7 @@ public class App {
                             JOptionPane.showMessageDialog(null, SENHA_INCORRETA);
                         }
                         // enquanto a senha for errada, volta para o loop
-                    } while (meuCelular.inserirSenha(senha) == false);
+                    } while (!meuCelular.inserirSenha(senha));
                     // instrução para voltar ao menu
                 voltar = JOptionPane.showConfirmDialog(null, RETORNAR_MENU, MENU, JOptionPane.YES_NO_OPTION);
                 // se a variavel voltar for igual a 0, retorna para o menu, o 0 indica a opção 'YES', e o 1 a opção 'NO'.
