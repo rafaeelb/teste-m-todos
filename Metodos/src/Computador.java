@@ -1,4 +1,4 @@
-public class Computador{
+public abstract class Computador implements Aparelhos{
     private boolean ligar_computador;
     private int senha;
 
@@ -16,6 +16,18 @@ public class Computador{
 
     public int getSenha() {
         return senha;
+    }
+
+    @Override
+    public boolean inserirSenha() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'inserirSenha'");
+    }
+
+    @Override
+    public boolean aumentarVolume() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'aumentarVolume'");
     }
 
     // public boolean inserirSenha(int senha){

@@ -1,4 +1,4 @@
-public abstract class Celular implements Aparelhos{
+public class Celular {
     private String modelo;
     private int youtube;
     private String armazenamento;
@@ -67,32 +67,17 @@ public abstract class Celular implements Aparelhos{
     }
 
     // função aumentar volume
-    // public boolean aumentarVolume(int botao_volume){
-    //     if (botao_volume == 0) {
-    //         return true;
-    //     }else{
-    //         return false;
-    //     }
-    // }
-
-    // função entrar no Youtubue
-    public boolean entrar_Youtube(int youtube){
-        if (youtube ==1) {
+    public boolean aumentarVolume(int botao_volume){
+        if (botao_volume == 0) {
             return true;
         }else{
             return false;
         }
     }
 
-    @Override
-    public boolean inserirSenha() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'inserirSenha'");
-    }
-
-    @Override
-    public boolean aumentarVolume() {
-        if (botao_volume == 0) {
+    // função entrar no Youtubue
+    public boolean entrar_Youtube(int youtube){
+        if (youtube ==1) {
             return true;
         }else{
             return false;

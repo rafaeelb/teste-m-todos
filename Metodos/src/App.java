@@ -21,8 +21,8 @@ public class App {
     private static final String ACESSO_NEGADO = "Não conseguiu acesso";
     public static void main(String[] args) throws Exception {
         // instanciação dos objetos
-        Celular meuCelular = new Celular(){};
-        Computador meuComputador = new Computador();
+        Celular meuCelular = new Celular();
+        //Computador meuComputador = new Computador();
         // declaração de variáveis
         int senha, menu = 0, voltar = 0, botao_volume, menuAparelhos = 0;
         String modelo, armazenamento;
@@ -40,7 +40,7 @@ public class App {
                     String escolherOpcao[] = {"Sair", "Digitar a senha", "Aumentar volume", "Entrar no Youtube"};
                     
                     JOptionPane.showMessageDialog(null, NOME_MODELO + meuCelular.getModelo() + "\n"+ARMAZENAMENTO + meuCelular.getArmazenamento());
-                    // inicialização do laço do while para o menu das opções acima
+                    // inicialização do laço do while para o menu das opções
                     do {
                         menu = JOptionPane.showOptionDialog(null, ESCOLHER_OPCAO + meuCelular.getModelo(), MENU, 0, JOptionPane.QUESTION_MESSAGE, null, escolherOpcao, escolherOpcao[0]);
                             
@@ -82,14 +82,14 @@ public class App {
                                 // se escolher o array aumentar o volume, entra nessa condição
                                 switch (botao_volume) {
                                     case 0:
-                                    if (meuCelular.aumentarVolume()) {
+                                    if (meuCelular.aumentarVolume(botao_volume)) {
                                         // escolha da quantidade para aumentar o volume
                                         quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog(AUMENTAR_VOLUME));
                                         JOptionPane.showMessageDialog(null, VOLUME_AUMENTADO + quantidade_volume);
                                     }break;
                                     // se escolher o array abaixar o volume, entra nessa condição
                                     case 1:
-                                    if (!meuCelular.aumentarVolume()) {
+                                    if (!meuCelular.aumentarVolume(botao_volume)) {
                                         // escolha da quantidade para abaixar o volume
                                         quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog(ABAIXAR_VOLUME));
                                         JOptionPane.showMessageDialog(null, VOLUME_ABAIXADO + quantidade_volume);
@@ -108,7 +108,7 @@ public class App {
                                     }
                                 }  break;
                                     
-                            } while (meuCelular.aumentarVolume());
+                            } while (meuCelular.aumentarVolume(botao_volume));
                             break;
         
                         case 3:
