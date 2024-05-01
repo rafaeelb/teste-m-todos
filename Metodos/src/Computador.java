@@ -1,4 +1,4 @@
-public class Computador extends Celular{
+public class Computador{
     private boolean ligar_computador;
     private int senha;
 

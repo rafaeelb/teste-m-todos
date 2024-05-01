@@ -1,4 +1,4 @@
-public abstract class Celular implements Interface{
+public abstract class Celular implements Aparelhos{
     private String modelo;
     private int youtube;
     private String armazenamento;
