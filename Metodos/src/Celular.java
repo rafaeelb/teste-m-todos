@@ -1,4 +1,4 @@
-public class Celular {
+public abstract class Celular implements Interface{
     private String modelo;
     private int youtube;
     private String armazenamento;
@@ -67,17 +67,32 @@ public class Celular {
     }
 
     // função aumentar volume
-    public boolean aumentarVolume(int botao_volume){
-        if (botao_volume == 0) {
+    // public boolean aumentarVolume(int botao_volume){
+    //     if (botao_volume == 0) {
+    //         return true;
+    //     }else{
+    //         return false;
+    //     }
+    // }
+
+    // função entrar no Youtubue
+    public boolean entrar_Youtube(int youtube){
+        if (youtube ==1) {
             return true;
         }else{
             return false;
         }
     }
 
-    // função entrar no Youtubue
-    public boolean entrar_Youtube(int youtube){
-        if (youtube ==1) {
+    @Override
+    public boolean inserirSenha() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'inserirSenha'");
+    }
+
+    @Override
+    public boolean aumentarVolume() {
+        if (botao_volume == 0) {
             return true;
         }else{
             return false;

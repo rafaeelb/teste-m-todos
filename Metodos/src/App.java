@@ -21,7 +21,7 @@ public class App {
     private static final String ACESSO_NEGADO = "Não conseguiu acesso";
     public static void main(String[] args) throws Exception {
         // instanciação dos objetos
-        Celular meuCelular = new Celular();
+        Celular meuCelular = new Celular(){};
         Computador meuComputador = new Computador();
         // declaração de variáveis
         int senha, menu = 0, voltar = 0, botao_volume, menuAparelhos = 0;
@@ -82,14 +82,14 @@ public class App {
                                 // se escolher o array aumentar o volume, entra nessa condição
                                 switch (botao_volume) {
                                     case 0:
-                                    if (meuCelular.aumentarVolume(botao_volume)) {
+                                    if (meuCelular.aumentarVolume()) {
                                         // escolha da quantidade para aumentar o volume
                                         quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog(AUMENTAR_VOLUME));
                                         JOptionPane.showMessageDialog(null, VOLUME_AUMENTADO + quantidade_volume);
                                     }break;
                                     // se escolher o array abaixar o volume, entra nessa condição
                                     case 1:
-                                    if (!meuCelular.aumentarVolume(botao_volume)) {
+                                    if (!meuCelular.aumentarVolume()) {
                                         // escolha da quantidade para abaixar o volume
                                         quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog(ABAIXAR_VOLUME));
                                         JOptionPane.showMessageDialog(null, VOLUME_ABAIXADO + quantidade_volume);
@@ -108,7 +108,7 @@ public class App {
                                     }
                                 }  break;
                                     
-                            } while (meuCelular.aumentarVolume(botao_volume));
+                            } while (meuCelular.aumentarVolume());
                             break;
         
                         case 3:
