@@ -17,5 +17,9 @@ public class Computador extends Celular{
     public int getSenha() {
         return senha;
     }
+
+    // public boolean inserirSenha(int senha){
+    //     o mesmo método da classe celular, porém com verificação de uma senha determinada pelo usuário
+    // }
     
 }
