@@ -1,4 +1,4 @@
-public abstract class Computador implements Dispositivos{
+public abstract class Computador extends Dispositivos{
     private boolean ligar_computador;
     private int senha;
 
