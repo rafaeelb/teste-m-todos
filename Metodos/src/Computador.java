@@ -1,4 +1,4 @@
-public abstract class Computador implements Aparelhos{
+public abstract class Computador implements Dispositivos{
     private boolean ligar_computador;
     private int senha;
 
@@ -18,17 +18,7 @@ public abstract class Computador implements Aparelhos{
         return senha;
     }
 
-    @Override
-    public boolean inserirSenha() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'inserirSenha'");
-    }
-
-    @Override
-    public boolean aumentarVolume() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'aumentarVolume'");
-    }
+ 
 
     // public boolean inserirSenha(int senha){
     //     o mesmo método da classe celular, porém com verificação de uma senha determinada pelo usuário
