@@ -2,8 +2,6 @@ public class Celular extends Dispositivos{
     private String modelo;
     private int youtube;
     private String armazenamento;
-    private int botao_volume;
-    private int senha;
 
     public Celular(){
 

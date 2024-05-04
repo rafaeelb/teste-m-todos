@@ -25,9 +25,9 @@ public class App {
     public static void main(String[] args) {
         // instanciação dos objetos
         Celular meuCelular = new Celular();
-        //Computador meuComputador = new Computador();
+        Computador meuComputador = new Computador();
         // declaração de variáveis
-        int menu = 0, voltar = 0, botao_volume, menuAparelhos = 0;
+        int senha = 0, menu = 0, voltar = 0, botao_volume, menuAparelhos = 0;
         String modelo, armazenamento;
         do {
             // menu escolha de aparelhos
@@ -53,7 +53,6 @@ public class App {
                         switch (menu) {
                             // função digitar a senha
                             case 1:
-                            int senha = 0;
                             // instrução do while que solicita a senha do celular e logo após entra na condição de que se a senha for = 1908, retorna true e com a mensagem Senha correta, se não for igual a 1908 retorna false com a mensagem Senha incorreta e fica no loop até que a senha seja igual a 1908.
                                 do {
                                     try {
@@ -132,11 +131,14 @@ public class App {
                             }
                         break;
                     }
-                    // conclusão do laço do while para o menu das opções.
+                    // conclusão do laço do while para o menu das opções do celular.
                 } while (menu !=0);
                     break;
                 case 2:
-                    JOptionPane.showMessageDialog(null,"Ainda estou programando essa opção, aceito críticas e sugestões");
+                    senha = Integer.parseInt(JOptionPane.showInputDialog("Digite a senha para o seu computador"));
+                    meuComputador.setSenha(senha);
+                    JOptionPane.showMessageDialog(null, "Senha cadastrada");
+                    
             }
         } while (menuAparelhos !=0);
         

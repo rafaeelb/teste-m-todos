@@ -10,5 +10,20 @@ public class Computador extends Dispositivos {
         // TODO Auto-generated method stub
         return false;
     }
+
+    public void setSenha(int senha){
+        this.senha = senha;
+    }
+
+    public int getSenha(){
+        return this.senha;
+    }
     
+    public void setBotao_volume(int botao_volume){
+        this.botao_volume = botao_volume;
+    }
+
+    public int getBotao_volume(){
+        return this.botao_volume;
+    }
 }
