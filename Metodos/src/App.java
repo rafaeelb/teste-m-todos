@@ -1,12 +1,15 @@
 import javax.swing.JOptionPane;
 public class App {
     // definição de constantes para evitar repetição de strings
+    private static final String DIGITAR_MODELO_CELULAR = "Digite o modelo do celular";
+    private static final String DIGITAR_ARMAZENAMENTO = "Digite o armazenamento do celular";
     private static final String NOME_MODELO = "Modelo ";
     private static final String ARMAZENAMENTO = "Armazenamento ";
     private static final String ESCOLHER_OPCAO = "Escolha uma opção para: ";
     private static final String SENHA_CELULAR = "Qual a senha do meu celular? ";
     private static final String SENHA_CORRETA = "A senha está correta!";
     private static final String SENHA_INCORRETA = "A senha está incorreta, digite novamente";
+    private static final String VALORES_NUMÉRICOS = "Digite apenas valores numéricos inteiros";
     private static final String RETORNAR_MENU = "Deseja retornar ao menu? ";
     private static final String MENU = "MENU";
     private static final String PROGRAMA_ENCERRADO = "Programa encerrado";
@@ -33,10 +36,11 @@ public class App {
             switch (menuAparelhos) {
                 // inicialização da função para o celular
                 case 1:
-                    modelo = JOptionPane.showInputDialog("Digite o modelo do celular ");
+                    modelo = JOptionPane.showInputDialog(DIGITAR_MODELO_CELULAR);
                     meuCelular.setModelo(modelo);
-                    armazenamento = JOptionPane.showInputDialog("Digite o armazenamento do celular ");
+                    armazenamento = JOptionPane.showInputDialog(DIGITAR_ARMAZENAMENTO);
                     meuCelular.setArmazenamento(armazenamento);
+                    
                 
                     // declaração do array(vetor) com as opções
                     String escolherOpcao[] = {"Sair", "Digitar a senha", "Aumentar volume", "Entrar no Youtube"};
@@ -61,7 +65,7 @@ public class App {
                                         }
                                         // TRATAMENTO DE EXCECÃO, ACEITANDO APENAS VALORES NUMÉRICOS
                                     } catch (NumberFormatException e) {
-                                        JOptionPane.showMessageDialog(null, "Digite apenas valores numéricos");
+                                        JOptionPane.showMessageDialog(null, VALORES_NUMÉRICOS);
                                     }
                                     // enquanto a senha for errada, volta para o loop(o '!' indica o operador lógico NOT), o método já é true, então pela lógica ele vai ser negado
                                 } while (!meuCelular.inserirSenha(senha));

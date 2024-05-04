@@ -1,4 +1,4 @@
-public class Celular {
+public class Celular extends Dispositivos{
     private String modelo;
     private int youtube;
     private String armazenamento;
