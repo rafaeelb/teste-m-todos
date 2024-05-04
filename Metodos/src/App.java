@@ -24,7 +24,7 @@ public class App {
         Celular meuCelular = new Celular();
         //Computador meuComputador = new Computador();
         // declaração de variáveis
-        int senha, menu = 0, voltar = 0, botao_volume, menuAparelhos = 0;
+        int menu = 0, voltar = 0, botao_volume, menuAparelhos = 0;
         String modelo, armazenamento;
         do {
             // menu escolha de aparelhos
@@ -49,26 +49,30 @@ public class App {
                         switch (menu) {
                             // função digitar a senha
                             case 1:
+                            int senha = 0;
                             // instrução do while que solicita a senha do celular e logo após entra na condição de que se a senha for = 1908, retorna true e com a mensagem Senha correta, se não for igual a 1908 retorna false com a mensagem Senha incorreta e fica no loop até que a senha seja igual a 1908.
                                 do {
-                                    senha = Integer.parseInt(JOptionPane.showInputDialog(null, SENHA_CELULAR));
-                                    if (meuCelular.inserirSenha(senha)) {
-                                        JOptionPane.showMessageDialog(null,SENHA_CORRETA);
-                                    }else{
-                                        JOptionPane.showMessageDialog(null, SENHA_INCORRETA);
+                                    try {
+                                        senha = Integer.parseInt(JOptionPane.showInputDialog(null, SENHA_CELULAR));
+                                        if (meuCelular.inserirSenha(senha)) {
+                                            JOptionPane.showMessageDialog(null, SENHA_CORRETA);
+                                        }else{
+                                            JOptionPane.showMessageDialog(null, SENHA_INCORRETA);
+                                        }
+                                        // TRATAMENTO DE EXCECÃO, ACEITANDO APENAS VALORES NUMÉRICOS
+                                    } catch (NumberFormatException e) {
+                                        JOptionPane.showMessageDialog(null, "Digite apenas valores numéricos");
                                     }
-                                    // enquanto a senha for errada, volta para o loop(O '!' INDICA O OPERADOR LÓGICO NOT), o método já é true, então pela lógica, ele vai ser negado
+                                    // enquanto a senha for errada, volta para o loop(o '!' indica o operador lógico NOT), o método já é true, então pela lógica ele vai ser negado
                                 } while (!meuCelular.inserirSenha(senha));
-                                // instrução para voltar ao menu
-                            voltar = JOptionPane.showConfirmDialog(null, RETORNAR_MENU, MENU, JOptionPane.YES_NO_OPTION);
-                            // se a variavel voltar for igual a 0, retorna para o menu, o 0 indica a opção 'YES', e o 1 a opção 'NO'.
-                            if (voltar == 0) {
-                                menu =4;
-                            }else{
-                                // indica a posição 0 do menu(sair)
-                                menu =0;
-                                JOptionPane.showMessageDialog(null, PROGRAMA_ENCERRADO);
-                            }
+                                // se a variável voltar for igual a 0, retorna para o menu, o 0 indica a opção 'YES', e o 1 a opção 'NO'
+                                voltar = JOptionPane.showConfirmDialog(null,RETORNAR_MENU, MENU, JOptionPane.YES_NO_OPTION);
+                                if (voltar == 0) {
+                                    menu = 4;
+                                }else{
+                                    menu=0;
+                                    JOptionPane.showMessageDialog(null,PROGRAMA_ENCERRADO);
+                                }
                                 break;
         
                         case 2:
