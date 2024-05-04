@@ -19,7 +19,7 @@ public class App {
     private static final String CLIQUE_YOUTUBE = "Clique em sim para entrar no Youtube";
     private static final String ACESSO_LIBERADO = "Conseguiu acesso";
     private static final String ACESSO_NEGADO = "Não conseguiu acesso";
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         // instanciação dos objetos
         Celular meuCelular = new Celular();
         //Computador meuComputador = new Computador();
@@ -122,7 +122,7 @@ public class App {
                             }
                         break;
                     }
-                    // conclusão do laço do while para o menu
+                    // conclusão do laço do while para o menu das opções
                 } while (menu !=0);
                     break;
                 case 2:
