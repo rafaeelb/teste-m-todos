@@ -27,16 +27,18 @@ public class App {
         int senha, menu = 0, voltar = 0, botao_volume, menuAparelhos = 0;
         String modelo, armazenamento;
         do {
+            // menu escolha de aparelhos
             String escolherMenu[] = {"Sair", "Celular", "Computador"};
             menuAparelhos = JOptionPane.showOptionDialog(null, "Escolha uma opção", MENU, 0, JOptionPane.QUESTION_MESSAGE, null, escolherMenu, escolherMenu[0]);
             switch (menuAparelhos) {
+                // inicialização da função para o celular
                 case 1:
                     modelo = JOptionPane.showInputDialog("Digite o modelo do celular ");
                     meuCelular.setModelo(modelo);
                     armazenamento = JOptionPane.showInputDialog("Digite o armazenamento do celular ");
                     meuCelular.setArmazenamento(armazenamento);
                 
-                    // declaração do array com as opções
+                    // declaração do array(vetor) com as opções
                     String escolherOpcao[] = {"Sair", "Digitar a senha", "Aumentar volume", "Entrar no Youtube"};
                     
                     JOptionPane.showMessageDialog(null, NOME_MODELO + meuCelular.getModelo() + "\n"+ARMAZENAMENTO + meuCelular.getArmazenamento());
