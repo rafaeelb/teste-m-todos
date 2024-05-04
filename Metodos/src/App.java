@@ -124,7 +124,7 @@ public class App {
                             }
                         break;
                     }
-                    // conclusão do laço do while para o menu das opções
+                    // conclusão do laço do while para o menu das opções.
                 } while (menu !=0);
                     break;
                 case 2:
