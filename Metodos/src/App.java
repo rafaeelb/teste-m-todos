@@ -6,7 +6,7 @@ public class App {
     private static final String NOME_MODELO = "Modelo ";
     private static final String ARMAZENAMENTO = "Armazenamento ";
     private static final String ESCOLHER_OPCAO = "Escolha uma opção para: ";
-    private static final String SENHA_CELULAR = "Qual a senha do meu celular? ";
+    private static final String SENHA_CELULAR = "Qual a senha do meu celular? (Digite apenas valores numéricos)";
     private static final String SENHA_CORRETA = "A senha está correta!";
     private static final String SENHA_INCORRETA = "A senha está incorreta, digite novamente";
     private static final String VALORES_NUMÉRICOS = "Digite apenas valores numéricos inteiros";
@@ -73,6 +73,7 @@ public class App {
                                     menu = 4;
                                 }else{
                                     menu=0;
+                                    menuAparelhos = 0;
                                     JOptionPane.showMessageDialog(null,PROGRAMA_ENCERRADO);
                                 }
                                 break;
