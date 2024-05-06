@@ -138,7 +138,9 @@ public class App {
                     senha = Integer.parseInt(JOptionPane.showInputDialog("Digite a senha para o seu computador"));
                     meuComputador.setSenha(senha);
                     JOptionPane.showMessageDialog(null, "Senha cadastrada");
-                    
+                    String escolherOpcao_PC[] = {"Sair", "Digitar Senha"};
+                    int menuPC;
+                    menuPC= JOptionPane.showOptionDialog(null, ESCOLHER_OPCAO, MENU, 0, JOptionPane.QUESTION_MESSAGE, null, escolherOpcao_PC, escolherOpcao_PC[0]);
             }
             // conclusão do laço do while para o menu dos aparelhos
         } while (menuAparelhos !=0);
