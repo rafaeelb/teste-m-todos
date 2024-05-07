@@ -6,7 +6,7 @@ public class App {
     private static final String NOME_MODELO = "Modelo ";
     private static final String ARMAZENAMENTO = "Armazenamento ";
     private static final String ESCOLHER_OPCAO = "Escolha uma opção para: ";
-    private static final String SENHA_CELULAR = "Qual a senha do meu celular? (Digite apenas valores numéricos)";
+    private static final String SENHA_CELULAR = "Qual a senha do meu celular? (Digite apenas valores numéricos inteiros)";
     private static final String SENHA_CORRETA = "A senha está correta!";
     private static final String SENHA_INCORRETA = "A senha está incorreta, digite novamente";
     private static final String VALORES_NUMÉRICOS = "Digite apenas valores numéricos inteiros";
@@ -18,10 +18,10 @@ public class App {
     private static final String ESCOLHER_MENU_VOLUME = "Escolha entre aumentar ou abaixar o volume";
     private static final String VOLUME_ABAIXADO = "Volume abaixado em ";
     private static final String VOLUME_AUMENTADO = "Volume aumentado em ";
-    private static final String ENTRAR_YOUTUBE = "Entrar no Youtube";
-    private static final String CLIQUE_YOUTUBE = "Clique em sim para entrar no Youtube";
-    private static final String ACESSO_LIBERADO = "Conseguiu acesso";
-    private static final String ACESSO_NEGADO = "Não conseguiu acesso";
+    // private static final String ENTRAR_YOUTUBE = "Entrar no Youtube";
+    // private static final String CLIQUE_YOUTUBE = "Clique em sim para entrar no Youtube";
+    // private static final String ACESSO_LIBERADO = "Conseguiu acesso";
+    // private static final String ACESSO_NEGADO = "Não conseguiu acesso";
     public static void main(String[] args) {
         // instanciação dos objetos
         Celular meuCelular = new Celular();
@@ -67,47 +67,47 @@ public class App {
                                             JOptionPane.showMessageDialog(null, VALORES_NUMÉRICOS);
                                         }
                                     }
-                                // instrução de retorno ao menu
-                                voltar = JOptionPane.showConfirmDialog(null,RETORNAR_MENU, MENU, JOptionPane.YES_NO_OPTION);
-                                if (voltar == 0) {
-                                    menu = 4;
-                                }else{
-                                    menu=0;
-                                    menuAparelhos = 0;
-                                    JOptionPane.showMessageDialog(null,PROGRAMA_ENCERRADO);
-                                }
                                 break;
         
                         case 2:
                             //funçao aumentar volume
                             do {
                                 // String escolha de opção para o volume
-                                String opcoesVolume[] = {"Aumentar volume" , "Abaixar volume", "Retornar ao Menu"};
+                                String opcoesVolume[] = {"Sair","Aumentar volume" , "Abaixar volume", "Retornar ao Menu"};
                                 // variavel de quantidade do volume
                                 int quantidade_volume = 0;
                                 // variavel do método aumentar volume, com a opção de aumentar ou abaixar o volume
                                 botao_volume = JOptionPane.showOptionDialog(null, ESCOLHER_MENU_VOLUME,MENU , 0, JOptionPane.QUESTION_MESSAGE, null, opcoesVolume, opcoesVolume[0]);
                                 
-                                // se escolher o array aumentar o volume, entra nessa condição
+                                
                                 switch (botao_volume) {
+                                    // encerrar programa
                                     case 0:
-                                    if (meuCelular.aumentarVolume(botao_volume)) {
+                                    menu = 0;
+                                    menuAparelhos = 0;
+                                    JOptionPane.showMessageDialog(null, PROGRAMA_ENCERRADO);
+                                    break;
+
+                                    // se escolher o array aumentar o volume, entra nessa condição
+                                    case 1:
+                                    if (!meuCelular.aumentarVolume(botao_volume)) {
                                         // escolha da quantidade para aumentar o volume
                                         quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog(AUMENTAR_VOLUME));
-                                        JOptionPane.showMessageDialog(null, VOLUME_AUMENTADO + quantidade_volume);
+                                        JOptionPane.showMessageDialog(null, VOLUME_AUMENTADO +  quantidade_volume);
+                                        // }
                                     }break;
                                     // se escolher o array abaixar o volume, entra nessa condição
-                                    case 1:
+                                    case 2:
                                     if (!meuCelular.aumentarVolume(botao_volume)) {
                                         // escolha da quantidade para abaixar o volume
                                         quantidade_volume = Integer.parseInt(JOptionPane.showInputDialog(ABAIXAR_VOLUME));
                                         JOptionPane.showMessageDialog(null, VOLUME_ABAIXADO + quantidade_volume);
                                     }
                                     break;
-                                    case 2:
-                                        // voltar ao menu
+                                    case 3:
+                                        //voltar ao menu
                                     voltar = JOptionPane.showConfirmDialog(null, RETORNAR_MENU, MENU, JOptionPane.YES_NO_OPTION);
-                                    // instrução voltar ao menu
+                                    //instrução voltar ao menu
                                     if (voltar == 0) {
                                         menu =4;
                                     }else{
@@ -119,31 +119,41 @@ public class App {
                                     
                             } while (meuCelular.aumentarVolume(botao_volume));
                             break;
-        
-                        case 3:
-                            // função entrar no youtube
-                            int youtube = JOptionPane.showConfirmDialog(null, CLIQUE_YOUTUBE, ENTRAR_YOUTUBE, JOptionPane.YES_NO_OPTION);
-                            // usando condição falsa (ARRUMAR), ainda não entendi
-                            if (meuCelular.entrar_Youtube(youtube) == false) {
-                                JOptionPane.showMessageDialog(null,ACESSO_LIBERADO);
-                            }else{
-                                JOptionPane.showMessageDialog(null,ACESSO_NEGADO);
-                            }
-                        break;
+                    }
+                    if (menu !=0) {
+                        voltar = JOptionPane.showConfirmDialog(null, RETORNAR_MENU, MENU, JOptionPane.YES_NO_OPTION);
+                        if (voltar == 0) {
+                            menu =4;
+                        }else{
+                            menu =0;
+                            menuAparelhos =0;
+                            JOptionPane.showMessageDialog(null, PROGRAMA_ENCERRADO);
+                        }
                     }
                     // conclusão do laço do while para o menu das opções do celular.
-                } while (menu !=0);
+                } while (menu !=0 && voltar == JOptionPane.YES_OPTION);
                     break;
+
                 case 2:
                     senha = Integer.parseInt(JOptionPane.showInputDialog("Digite a senha para o seu computador"));
                     meuComputador.setSenha(senha);
                     JOptionPane.showMessageDialog(null, "Senha cadastrada");
-                    String escolherOpcao_PC[] = {"Sair", "Digitar Senha"};
-                    int menuPC;
-                    menuPC= JOptionPane.showOptionDialog(null, ESCOLHER_OPCAO, MENU, 0, JOptionPane.QUESTION_MESSAGE, null, escolherOpcao_PC, escolherOpcao_PC[0]);
+                    // String escolherOpcao_PC[] = {"Sair", "Digitar Senha"};
+                    // int menuPC;
+                    // menuPC= JOptionPane.showOptionDialog(null, ESCOLHER_OPCAO, MENU, 0, JOptionPane.QUESTION_MESSAGE, null, escolherOpcao_PC, escolherOpcao_PC[0]);
+            }
+            if (menuAparelhos!=0) {
+                voltar = JOptionPane.showConfirmDialog(null, RETORNAR_MENU, MENU, JOptionPane.YES_NO_OPTION);
+                        if (voltar == 0) {
+                            menu =4;
+                        }else{
+                            menu = 0;
+                            menuAparelhos =0;
+                            JOptionPane.showMessageDialog(null, PROGRAMA_ENCERRADO);
+                        }
             }
             // conclusão do laço do while para o menu dos aparelhos
-        } while (menuAparelhos !=0);
+        } while (menuAparelhos !=0 && voltar == JOptionPane.YES_OPTION);
         
     }
 }
