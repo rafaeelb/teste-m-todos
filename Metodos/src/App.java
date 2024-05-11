@@ -1,6 +1,9 @@
 import javax.swing.JOptionPane;
 public class App {
     // definição de constantes para evitar repetição de strings
+    private static final String CELULAR_LIGANDO = "O celular está ligando...";
+    private static final String CELULAR_LIGAD0 = "Celular ligado. Aperte em OK para prosseguir";
+    private static final String CELULAR_DESLIGAD0 = "O celular foi desligado";
     private static final String DIGITAR_MODELO_CELULAR = "Digite o modelo do celular";
     private static final String DIGITAR_ARMAZENAMENTO = "Digite o armazenamento do celular";
     private static final String NOME_MODELO = "Modelo ";
@@ -33,22 +36,23 @@ public class App {
             // menu escolha de aparelhos
             String escolherMenu[] = {"Sair", "Celular", "Computador"};
             menuAparelhos = JOptionPane.showOptionDialog(null, "Escolha uma opção", MENU, 0, JOptionPane.QUESTION_MESSAGE, null, escolherMenu, escolherMenu[0]);
+            // Digitando modelo e armazenamento para o celular
+            modelo = JOptionPane.showInputDialog(DIGITAR_MODELO_CELULAR);
+            meuCelular.setModelo(modelo);
+            armazenamento = JOptionPane.showInputDialog(DIGITAR_ARMAZENAMENTO);
+            meuCelular.setArmazenamento(armazenamento);
             switch (menuAparelhos) {
                 // inicialização da função para o celular
                 case 1:
                     // ligar o celular
                     meuCelular.ligar();
+                    JOptionPane.showMessageDialog(null,CELULAR_LIGANDO, MENU, JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, CELULAR_LIGAD0);
 
-                    JOptionPane.showMessageDialog(null, "Celular ligado... Aperte em OK para prosseguir");
-                    modelo = JOptionPane.showInputDialog(DIGITAR_MODELO_CELULAR);
-                    meuCelular.setModelo(modelo);
-                    armazenamento = JOptionPane.showInputDialog(DIGITAR_ARMAZENAMENTO);
-                    meuCelular.setArmazenamento(armazenamento);
-                    
-                
                     // declaração do array(vetor) com as opções
                     String escolherOpcao[] = {"Sair", "Digitar a senha", "Aumentar volume", "Desligar o Celular"};
                     
+                    // mensagem mostrando modelo e armazenamento
                     JOptionPane.showMessageDialog(null, NOME_MODELO + meuCelular.getModelo() + "\n"+ARMAZENAMENTO + meuCelular.getArmazenamento());
                     // inicialização do laço do while para o menu das opções
                     do {
@@ -125,11 +129,13 @@ public class App {
                             break;
 
                         case 3:
+                            // desligando o celular
                             meuCelular.desligar();
-                            JOptionPane.showMessageDialog(null, "Celular desligado");
+                            JOptionPane.showMessageDialog(null, CELULAR_DESLIGAD0);
                             menu = 0;
                         break;
                     }
+                    // voltar ao menu das opções do celular ou encerrar o programa
                     if (menu !=0) {
                         voltar = JOptionPane.showConfirmDialog(null, RETORNAR_MENU, MENU, JOptionPane.YES_NO_OPTION);
                         if (voltar == 0) {
@@ -153,6 +159,7 @@ public class App {
                     // int menuPC;
                     // menuPC= JOptionPane.showOptionDialog(null, ESCOLHER_OPCAO, MENU, 0, JOptionPane.QUESTION_MESSAGE, null, escolherOpcao_PC, escolherOpcao_PC[0]);
             }
+            // voltar ao menu aparelhos ou encerrar o programa
             if (menuAparelhos!=0) {
                 voltar = JOptionPane.showConfirmDialog(null, RETORNAR_MENU, MENU, JOptionPane.YES_NO_OPTION);
                         if (voltar == 0) {

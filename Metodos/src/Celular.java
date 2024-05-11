@@ -96,9 +96,9 @@ public class Celular extends Dispositivos{
     public boolean desligar() {
         if (botao_ligar == 1) {
             botao_ligar = 0;
-            return false;
-        } else {
             return true;
+        } else {
+            return false;
         }
     }
 
