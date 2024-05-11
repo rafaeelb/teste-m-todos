@@ -1,19 +1,20 @@
 import javax.swing.JOptionPane;
 public class App {
     // definição de constantes para evitar repetição de strings
-    private static final String CELULAR_LIGANDO = "O celular está ligando...";
-    private static final String CELULAR_LIGAD0 = "Celular ligado. Aperte em OK para prosseguir";
+    private static final String CELULAR_LIGANDO = " está ligando...";
+    private static final String CELULAR_LIGAD0 = " ligado. Aperte em OK para prosseguir";
     private static final String CELULAR_DESLIGAD0 = "O celular foi desligado";
     private static final String DIGITAR_MODELO_CELULAR = "Digite o modelo do celular";
     private static final String DIGITAR_ARMAZENAMENTO = "Digite o armazenamento do celular";
-    private static final String NOME_MODELO = "Modelo ";
-    private static final String ARMAZENAMENTO = "Armazenamento ";
+    private static final String NOME_MODELO = "Modelo: ";
+    private static final String ARMAZENAMENTO = "Armazenamento: ";
     private static final String ESCOLHER_OPCAO = "Escolha uma opção para: ";
     private static final String SENHA_CELULAR = "Qual a senha do meu celular? (Digite apenas valores numéricos inteiros)";
     private static final String SENHA_CORRETA = "A senha está correta!";
     private static final String SENHA_INCORRETA = "A senha está incorreta, digite novamente";
     private static final String VALORES_NUMÉRICOS = "Digite apenas valores numéricos inteiros";
     private static final String RETORNAR_MENU = "Deseja retornar ao menu? ";
+    private static final String RETORNAR_MENU_APARELHOS = "Deseja retornar ao menu dos aparelhos? ";
     private static final String MENU = "MENU";
     private static final String PROGRAMA_ENCERRADO = "Programa encerrado";
     private static final String AUMENTAR_VOLUME = "Em quanto deseja aumentar o volume? ";
@@ -36,21 +37,23 @@ public class App {
             // menu escolha de aparelhos
             String escolherMenu[] = {"Sair", "Celular", "Computador"};
             menuAparelhos = JOptionPane.showOptionDialog(null, "Escolha uma opção", MENU, 0, JOptionPane.QUESTION_MESSAGE, null, escolherMenu, escolherMenu[0]);
-            // Digitando modelo e armazenamento para o celular
-            modelo = JOptionPane.showInputDialog(DIGITAR_MODELO_CELULAR);
-            meuCelular.setModelo(modelo);
-            armazenamento = JOptionPane.showInputDialog(DIGITAR_ARMAZENAMENTO);
-            meuCelular.setArmazenamento(armazenamento);
+
             switch (menuAparelhos) {
                 // inicialização da função para o celular
                 case 1:
+                     // Digitando modelo e armazenamento para o celular
+                    modelo = JOptionPane.showInputDialog(DIGITAR_MODELO_CELULAR);
+                    meuCelular.setModelo(modelo);
+                    armazenamento = JOptionPane.showInputDialog(DIGITAR_ARMAZENAMENTO);
+                    meuCelular.setArmazenamento(armazenamento);
+
                     // ligar o celular
                     meuCelular.ligar();
-                    JOptionPane.showMessageDialog(null,CELULAR_LIGANDO, MENU, JOptionPane.INFORMATION_MESSAGE);
-                    JOptionPane.showMessageDialog(null, CELULAR_LIGAD0);
+                    JOptionPane.showMessageDialog(null,meuCelular.getModelo()+CELULAR_LIGANDO, MENU, JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, meuCelular.getModelo()+CELULAR_LIGAD0);
 
                     // declaração do array(vetor) com as opções
-                    String escolherOpcao[] = {"Sair", "Digitar a senha", "Aumentar volume", "Desligar o Celular"};
+                    String escolherOpcao[] = {"Sair", "Digitar a senha", "Verificar volume", "Desligar o Celular"};
                     
                     // mensagem mostrando modelo e armazenamento
                     JOptionPane.showMessageDialog(null, NOME_MODELO + meuCelular.getModelo() + "\n"+ARMAZENAMENTO + meuCelular.getArmazenamento());
@@ -76,9 +79,8 @@ public class App {
                                         }
                                     }
                                 break;
-        
+                        //funçao verificar volume
                         case 2:
-                            //funçao aumentar volume
                             do {
                                 // String escolha de opção para o volume
                                 String opcoesVolume[] = {"Sair","Aumentar volume" , "Abaixar volume", "Retornar ao Menu"};
@@ -158,10 +160,13 @@ public class App {
                     // String escolherOpcao_PC[] = {"Sair", "Digitar Senha"};
                     // int menuPC;
                     // menuPC= JOptionPane.showOptionDialog(null, ESCOLHER_OPCAO, MENU, 0, JOptionPane.QUESTION_MESSAGE, null, escolherOpcao_PC, escolherOpcao_PC[0]);
+                    
             }
+
+                
             // voltar ao menu aparelhos ou encerrar o programa
             if (menuAparelhos!=0) {
-                voltar = JOptionPane.showConfirmDialog(null, RETORNAR_MENU, MENU, JOptionPane.YES_NO_OPTION);
+                voltar = JOptionPane.showConfirmDialog(null,RETORNAR_MENU_APARELHOS, MENU, JOptionPane.YES_NO_OPTION);
                         if (voltar == 0) {
                             menu =4;
                         }else{
