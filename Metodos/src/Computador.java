@@ -1,13 +1,13 @@
 public class Computador extends Dispositivos {
     
     @Override
-    public boolean desligar(int botao_ligar) {
+    public boolean desligar() {
         // TODO Auto-generated method stub
         return false;
     }
 
     @Override
-    public boolean ligar(int botao_ligar) {
+    public boolean ligar() {
         if (botao_ligar == 1) {
             return true;
         } else {

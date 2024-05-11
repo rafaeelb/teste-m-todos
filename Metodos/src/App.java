@@ -36,9 +36,10 @@ public class App {
             switch (menuAparelhos) {
                 // inicialização da função para o celular
                 case 1:
-                    int ligando = meuCelular.botao_ligar;
-                    meuCelular.ligar(ligando);
-                    JOptionPane.showMessageDialog(null, "Ligando o celular... Aperte em OK para prosseguir");
+                    // ligar o celular
+                    meuCelular.ligar();
+
+                    JOptionPane.showMessageDialog(null, "Celular ligado... Aperte em OK para prosseguir");
                     modelo = JOptionPane.showInputDialog(DIGITAR_MODELO_CELULAR);
                     meuCelular.setModelo(modelo);
                     armazenamento = JOptionPane.showInputDialog(DIGITAR_ARMAZENAMENTO);
@@ -124,7 +125,7 @@ public class App {
                             break;
 
                         case 3:
-                            meuCelular.desligar(ligando);
+                            meuCelular.desligar();
                             JOptionPane.showMessageDialog(null, "Celular desligado");
                             menu = 0;
                         break;

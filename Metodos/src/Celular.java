@@ -83,8 +83,9 @@ public class Celular extends Dispositivos{
     }
 
     @Override
-    public boolean ligar(int botao_ligar) {
-        if (botao_ligar == 1) {
+    public boolean ligar() {
+        if (botao_ligar == 0) {
+            botao_ligar = 1;
             return true;
         } else {
             return false;
@@ -92,8 +93,9 @@ public class Celular extends Dispositivos{
     }
 
     @Override
-    public boolean desligar(int botao_ligar) {
+    public boolean desligar() {
         if (botao_ligar == 1) {
+            botao_ligar = 0;
             return false;
         } else {
             return true;
