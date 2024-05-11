@@ -82,5 +82,23 @@ public class Celular extends Dispositivos{
         }
     }
 
+    @Override
+    public boolean ligar(int botao_ligar) {
+        if (botao_ligar == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean desligar(int botao_ligar) {
+        if (botao_ligar == 1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     
 }

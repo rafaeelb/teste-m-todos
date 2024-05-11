@@ -36,6 +36,9 @@ public class App {
             switch (menuAparelhos) {
                 // inicialização da função para o celular
                 case 1:
+                    int ligando = meuCelular.botao_ligar;
+                    meuCelular.ligar(ligando);
+                    JOptionPane.showMessageDialog(null, "Ligando o celular... Aperte em OK para prosseguir");
                     modelo = JOptionPane.showInputDialog(DIGITAR_MODELO_CELULAR);
                     meuCelular.setModelo(modelo);
                     armazenamento = JOptionPane.showInputDialog(DIGITAR_ARMAZENAMENTO);
@@ -43,12 +46,12 @@ public class App {
                     
                 
                     // declaração do array(vetor) com as opções
-                    String escolherOpcao[] = {"Sair", "Digitar a senha", "Aumentar volume", "Entrar no Youtube"};
+                    String escolherOpcao[] = {"Sair", "Digitar a senha", "Aumentar volume", "Desligar o Celular"};
                     
                     JOptionPane.showMessageDialog(null, NOME_MODELO + meuCelular.getModelo() + "\n"+ARMAZENAMENTO + meuCelular.getArmazenamento());
                     // inicialização do laço do while para o menu das opções
                     do {
-                        menu = JOptionPane.showOptionDialog(null, ESCOLHER_OPCAO + meuCelular.getModelo(), MENU, 0, JOptionPane.QUESTION_MESSAGE, null, escolherOpcao, escolherOpcao[0]);
+                        menu = JOptionPane.showOptionDialog(null, ESCOLHER_OPCAO + meuCelular.getModelo(), "Meu Celular", 0, JOptionPane.QUESTION_MESSAGE, null, escolherOpcao, escolherOpcao[0]);
                             
                         switch (menu) {
                             // função digitar a senha
@@ -119,6 +122,12 @@ public class App {
                                     
                             } while (meuCelular.aumentarVolume(botao_volume));
                             break;
+
+                        case 3:
+                            meuCelular.desligar(ligando);
+                            JOptionPane.showMessageDialog(null, "Celular desligado");
+                            menu = 0;
+                        break;
                     }
                     if (menu !=0) {
                         voltar = JOptionPane.showConfirmDialog(null, RETORNAR_MENU, MENU, JOptionPane.YES_NO_OPTION);
@@ -134,6 +143,7 @@ public class App {
                 } while (menu !=0 && voltar == JOptionPane.YES_OPTION);
                     break;
 
+                // computador
                 case 2:
                     senha = Integer.parseInt(JOptionPane.showInputDialog("Digite a senha para o seu computador"));
                     meuComputador.setSenha(senha);
