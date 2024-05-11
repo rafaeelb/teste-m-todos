@@ -56,6 +56,7 @@ public class Celular extends Dispositivos{
     }
 
     // função inserir senha
+    @Override
     public boolean inserirSenha(int senha){
         if (senha == 1908) {
             return true;
@@ -65,6 +66,7 @@ public class Celular extends Dispositivos{
     }
 
     // função aumentar volume
+    @Override
     public boolean aumentarVolume(int botao_volume){
         if (botao_volume == 0) {
             return true;
